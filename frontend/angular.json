@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tp07_feucht_joe": {
+    "projet_feucht_joe": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/tp07_feucht_joe",
+            "outputPath": "dist/projet_feucht_joe",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -50,10 +50,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "tp07_feucht_joe:build:production"
+              "buildTarget": "projet_feucht_joe:build:production"
             },
             "development": {
-              "buildTarget": "tp07_feucht_joe:build:development"
+              "buildTarget": "projet_feucht_joe:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -61,7 +61,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "tp07_feucht_joe:build"
+            "buildTarget": "projet_feucht_joe:build"
           }
         },
         "test": {

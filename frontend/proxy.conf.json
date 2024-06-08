@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://tp07-feucht-joe-backend.onrender.com//",
+    "target": "https://projet-feucht-joe-backend.onrender.com//",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

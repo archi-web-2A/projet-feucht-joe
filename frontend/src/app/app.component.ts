@@ -21,5 +21,5 @@ import { CardsModule } from './shared/modules/cards/cards.module';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'tp07_feucht_joe';
+  title = 'projet_feucht_joe';
 }
