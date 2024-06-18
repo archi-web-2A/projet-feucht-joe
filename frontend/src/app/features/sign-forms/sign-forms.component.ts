@@ -62,7 +62,7 @@ export class SignFormsComponent {
         },
         (error) => {
           this.showSignupFailureMessage = true;
-          this.signinFailureMessage = error.error.message;
+          this.signupFailureMessage = error.error.message;
         }
       );
     } else {

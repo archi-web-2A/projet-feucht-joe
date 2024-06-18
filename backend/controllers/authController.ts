@@ -65,7 +65,7 @@ export const register = async (req: Request, res: Response) => {
     try {
         const existingUser = await Utilisateurs.findOne({ where: { email } });
         if (existingUser) {
-            res.status(409).send({ error: 'User already exists' });
+            res.status(409).send({ message: 'User already exists' });
             return;
         }
 
