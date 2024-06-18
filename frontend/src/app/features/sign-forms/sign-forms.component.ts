@@ -119,10 +119,7 @@ export class SignFormsComponent {
   get signupInfo() {
     return this.signupForm.controls;
   }
-
   onSubmitSignin() {
   }
-
-
 
 }

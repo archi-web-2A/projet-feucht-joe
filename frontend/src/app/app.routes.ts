@@ -13,10 +13,6 @@ export const routes: Routes = [
   },
   { path: 'cards', component: CardsComponent},
   {
-    path: 'account',
-    loadComponent: () => import('./features/account/account.component').then(c => c.AccountComponent)
-  },
-  {
     path: 'shopping-card',
     loadComponent: () => import('./features/shopping-card/shopping-card.component').then(c => c.ShoppingCardComponent)
   }

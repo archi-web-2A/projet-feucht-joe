@@ -25,7 +25,7 @@ export class UserService {
     )
   }
 
-  loginUser(user: User): Observable<any> {
+  loginUser(user: Partial<User>): Observable<any> {
     return this.http.post<any>(environment.backendClient + '/login', user).pipe(
       tap(response => {
         const token = response.accessToken;
