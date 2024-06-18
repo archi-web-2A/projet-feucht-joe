@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import {Router, RouterLink} from "@angular/router";
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {CustomInputComponent} from "../../shared/components/custom-input/custom-input.component";
+import { Router, RouterLink } from "@angular/router";
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { CustomInputComponent } from "../../shared/components/custom-input/custom-input.component";
 import { UserService } from "../../core/services/user.service";
 import { User } from "../../shared/models/user";
 
@@ -16,19 +16,21 @@ import { User } from "../../shared/models/user";
     CustomInputComponent,
   ],
   templateUrl: './sign-forms.component.html',
-  styleUrl: './sign-forms.component.css'
+  styleUrls: ['./sign-forms.component.css']
 })
 export class SignFormsComponent {
   showSignupFailureMessage = false;
   signupFailureMessage = '';
 
-  constructor(private router: Router, private userService: UserService) {
-  }
+  showSigninFailureMessage = false;
+  signinFailureMessage = '';
+
+  constructor(private router: Router, private userService: UserService) {}
 
   signinForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
-  })
+  });
 
   signupForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -42,7 +44,8 @@ export class SignFormsComponent {
     location: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
     postalCode: new FormControl('', [Validators.required, Validators.pattern("[0-9]{5}")]),
-  })
+  });
+
   passwordMatchValidator(): boolean {
     return this.signupForm.controls.password.value === this.signupForm.controls.passwordConfirmation.value;
   }
@@ -58,7 +61,6 @@ export class SignFormsComponent {
           this.router.navigate(['/signup-validation']);
         },
         (error) => {
-          console.log(error);
           this.showSignupFailureMessage = true;
           this.signupFailureMessage = 'An error occurred while signing up. Please try again later.';
         }
@@ -119,7 +121,24 @@ export class SignFormsComponent {
   get signupInfo() {
     return this.signupForm.controls;
   }
-  onSubmitSignin() {
-  }
 
+  onSubmitSignin() {
+    if (this.signinForm.valid) {
+      this.showSigninFailureMessage = false;
+      const email = this.signinForm.get('email')?.value as string;
+      const password = this.signinForm.get('password')?.value as string;
+
+      const credentials = { email, password };
+
+      this.userService.loginUser(credentials).subscribe(
+        () => {
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          this.showSigninFailureMessage = true;
+          this.signinFailureMessage = error.message;
+        }
+      );
+    }
+  }
 }

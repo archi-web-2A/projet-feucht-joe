@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import db from '../models';
 import dotenv from 'dotenv';
+import * as util from "util";
 
 dotenv.config();
 
@@ -17,38 +18,29 @@ const generateAccessToken = (user: any) => {
 // Login function
 export const login = async (req: Request, res: Response) => {
     const utilisateur = {
-        login: req.body.login,
+        email: req.body.email,
         password: req.body.password
     };
 
-    // Validate login and password
-    const pattern = /^[A-Za-z0-9]{1,20}$/;
-    if (pattern.test(utilisateur.login) && pattern.test(utilisateur.password)) {
-        try {
-            const data = await Utilisateurs.findOne({ where: { login: utilisateur.login } });
-            if (data) {
-                const user = {
-                    id: data.id,
-                    name: data.nom,
-                    email: data.email
-                };
+    try {
+        const data = await Utilisateurs.findOne({ where: { email: utilisateur.email } });
+        if (data) {
+            const user = {
+                email: data.email,
+                password: data.password
+            };
 
-                const accessToken = generateAccessToken(user);
-                res.setHeader('Authorization', `Bearer ${accessToken}`);
-                res.send(data);
-            } else {
-                res.status(404).send({
-                    message: `Cannot find Utilisateur with login=${utilisateur.login}.`
-                });
-            }
-        } catch (err) {
-            res.status(400).send({
-                message: `Error retrieving Utilisateur with login=${utilisateur.login}`
+            const accessToken = generateAccessToken(user);
+            res.setHeader('Authorization', `Bearer ${accessToken}`);
+            res.send(data);
+        } else {
+            res.status(404).send({
+                message: `Cannot find Utilisateur with login=${utilisateur.email}.`
             });
         }
-    } else {
+    } catch (err) {
         res.status(400).send({
-            message: 'Login or password incorrect'
+            message: `Error retrieving Utilisateur with login=${utilisateur.email}`
         });
     }
 };

@@ -19,19 +19,17 @@ export class UserService {
         const token = response.accessToken;
         if (token) {
           localStorage.setItem('token', token);
-          console.log(token)
         }
       })
     )
   }
 
-  loginUser(user: Partial<User>): Observable<any> {
-    return this.http.post<any>(environment.backendClient + '/login', user).pipe(
+  loginUser(credentials: { email: string; password: string }): Observable<any> {
+    return this.http.post<any>(environment.backendClient + '/login', credentials).pipe(
       tap(response => {
         const token = response.accessToken;
         if (token) {
           localStorage.setItem('token', token);
-          console.log(token)
         }
       })
     )
