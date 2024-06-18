@@ -62,7 +62,7 @@ export class SignFormsComponent {
         },
         (error) => {
           this.showSignupFailureMessage = true;
-          this.signupFailureMessage = 'An error occurred while signing up. Please try again later.';
+          this.signinFailureMessage = error.error.message;
         }
       );
     } else {
@@ -136,7 +136,7 @@ export class SignFormsComponent {
         },
         (error) => {
           this.showSigninFailureMessage = true;
-          this.signinFailureMessage = error.message;
+          this.signinFailureMessage = error.error.message;
         }
       );
     }
