@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { FooterComponent } from './core/components/footer/footer.component';
 import { HeroComponent } from './features/hero/hero.component';
 import { ProductComponent } from './features/product/product.component';
 import { CardsModule } from './shared/modules/cards/cards.module';

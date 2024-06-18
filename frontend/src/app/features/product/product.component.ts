@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Product} from "../../core/models/product";
+import {Product} from "../../shared/models/product";
 import {Store} from "@ngxs/store";
 import {AddProduct} from "../../shared/actions/product-action";
 

@@ -2,7 +2,7 @@ import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {ProductStateModel} from "./product-state-model";
 import {Injectable} from "@angular/core";
 import {AddProduct, DelProduct} from "../actions/product-action";
-import {Product} from "../../core/models/product";
+import {Product} from "../models/product";
 
 @State<ProductStateModel>({
   name: 'products',

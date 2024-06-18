@@ -5,7 +5,7 @@ import {
 import {MultiRangeSliderComponent} from "../../shared/components/multi-range-slider/multi-range-slider.component";
 import {
   ProductSearchBarCatalogueComponent
-} from "../../shared/components/product-search-bar/product-search-bar-catalogue/product-search-bar-catalogue.component";
+} from "../product/product-search-bar-catalogue/product-search-bar-catalogue.component";
 import {ReactiveFormsModule} from "@angular/forms";
 
 @Component({

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ProductsCatalogueComponent} from "../products-catalogue/products-catalogue.component";
+import {ProductsCatalogueComponent} from "../product/products-catalogue/products-catalogue.component";
 import {RouterLink} from "@angular/router";
 
 

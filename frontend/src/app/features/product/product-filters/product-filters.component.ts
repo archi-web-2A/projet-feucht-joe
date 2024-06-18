@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {MinMaxProductValuesComponent} from "../min-max-product-values/min-max-product-values.component";
-import {MultiRangeSliderComponent} from "../multi-range-slider/multi-range-slider.component";
+import {MinMaxProductValuesComponent} from "../../../shared/components/min-max-product-values/min-max-product-values.component";
+import {MultiRangeSliderComponent} from "../../../shared/components/multi-range-slider/multi-range-slider.component";
 import {
   ProductSearchBarCatalogueComponent
-} from "../product-search-bar/product-search-bar-catalogue/product-search-bar-catalogue.component";
+} from "../product-search-bar-catalogue/product-search-bar-catalogue.component";
 import {combineLatest, map, Observable, startWith} from "rxjs";
-import {Product} from "../../../core/models/product";
+import {Product} from "../../../shared/models/product";
 import {ProductService} from "../../../core/services/product.service";
 import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
 

@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProductService} from "../../../../core/services/product.service";
-import {Product} from "../../../../core/models/product";
+import {ProductService} from "../../../services/product.service";
+import {Product} from "../../../../shared/models/product";
 import {Observable, Subject, Subscription, catchError, debounceTime, distinctUntilChanged, of, switchMap, tap} from "rxjs";
 import {CommonModule} from "@angular/common";
 import { FormsModule } from '@angular/forms';

@@ -4,7 +4,7 @@ import {Router, RouterLink} from "@angular/router";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CustomInputComponent} from "../../shared/components/custom-input/custom-input.component";
 import { UserService } from "../../core/services/user.service";
-import { User } from "../../core/models/user";
+import { User } from "../../shared/models/user";
 
 @Component({
   selector: 'app-sign-forms',
@@ -49,7 +49,7 @@ export class SignFormsComponent {
 
   onSubmitSignup() {
     this.markFormGroupDirty(this.signupForm);
-  
+
     if (this.signupForm.valid && this.passwordMatchValidator()) {
       this.showSignupFailureMessage = false;
       let user = this.convertFormGroupToUser(this.signupForm);
@@ -68,7 +68,7 @@ export class SignFormsComponent {
       this.signupFailureMessage = this.generateErrorMessage();
     }
   }
-  
+
   generateErrorMessage(): string {
     let failureMessage = 'Champ(s) invalide(s)';
     const formControls = this.signupForm.controls;

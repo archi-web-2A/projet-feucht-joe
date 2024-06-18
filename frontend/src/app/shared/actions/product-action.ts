@@ -1,4 +1,4 @@
-import {Product} from "../../core/models/product";
+import {Product} from "../models/product";
 
 export class AddProduct {
   static readonly type = '[Product] Add';

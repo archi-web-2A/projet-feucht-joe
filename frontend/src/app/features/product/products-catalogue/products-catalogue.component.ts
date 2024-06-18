@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {Product} from "../../core/models/product";
+import {Product} from "../../../shared/models/product";
 import {CommonModule} from "@angular/common";
-import {ProductComponent} from "../product/product.component";
-import {ProductFiltersComponent} from "../../shared/components/product-filters/product-filters.component";
+import {ProductComponent} from "../product.component";
+import {ProductFiltersComponent} from "../product-filters/product-filters.component";
 import {Observable} from "rxjs";
 
 @Component({

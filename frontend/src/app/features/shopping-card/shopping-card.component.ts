@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {ProductShoppingCardComponent} from "../product-shopping-card/product-shopping-card.component";
+import {ProductShoppingCardComponent} from "./product-shopping-card/product-shopping-card.component";
 import {Select, Store} from "@ngxs/store";
 import {ProductsState} from "../../shared/states/products-state";
 import {Observable} from "rxjs";
 import {AsyncPipe} from "@angular/common";
-import {Product} from "../../core/models/product";
+import {Product} from "../../shared/models/product";
 import {RouterLink} from "@angular/router";
 
 @Component({

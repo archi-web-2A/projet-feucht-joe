@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import {NavigationEnd, Router, RouterLink, RouterLinkActive} from "@angular/router";
-import { ProductSearchBarHeaderComponent } from "../product-search-bar/product-search-bar-header/product-search-bar-header.component";
-import {ProductsState} from "../../states/products-state";
+import { ProductSearchBarHeaderComponent } from "./product-search-bar-header/product-search-bar-header.component";
+import {ProductsState} from "../../../shared/states/products-state";
 import {Select} from "@ngxs/store";
 import {Observable} from "rxjs";
 
