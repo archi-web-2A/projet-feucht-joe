@@ -1,26 +1,21 @@
-<section class="min-h-screen overflow-hidden py-[12rem] section-p-m">
-  <div class="grid grid-cols-4 gap-4">
-    <div class="col-span-1 flex flex-col items-center gap-4 rounded-xl p-5 shadow-xl">
-      <h1 class="text-2xl">Bonjour <span class="font-bold text-primary-blue">Joé</span></h1>
-      <img src="assets/images/orangutan_sunglasses.png" alt="Profile Picture" class="rounded-full h-52 w-52 border border-primary-blue">
-      <div tabindex="0" class="daisy-collapse daisy-collapse-open">
-        <input type="checkbox" checked />
-        <div class="daisy-collapse-title bg-white text-xl font-medium">
-          <div class="flex items-center gap-2">
-            <img src="assets/images/user-solid.svg" class="h-5 w-5">
-            <h1 class="font-bold">Mon compte</h1>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span>Mes informations personnelles</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span>Mes cartes enregistrées</span>
+<section class="relative flex min-h-screen flex-col justify-center items-center overflow-hidden">
+  <ng-container *ngIf="user">
+    <div class="relative bg-white min-w-[700px] max-w-screen-xl py-8 shadow-xl ring-1 ring-gray-900/5 mx-auto rounded-lg px-10">
+      <div class="flex flex-col gap-8">
+        <div class="flex items-center justify-center">
+          <img src="assets/images/user-solid-blue.svg" class="scale-75">
+          <div class="flex flex-col">
+            <p> {{user.firstName}} {{ user.lastName }}</p>
+            <p class="text-secondary-purple"><button (click)="logout()"> Déconnexion</button></p>
           </div>
         </div>
+        <form class="flex flex-col gap-8 items-center">
+          <div class="grid grid-cols-2 gap-4">
+            <app-custom-disabled-input class="col-span-1" [placeholder]="user.firstName" inputIcon="user-solid"></app-custom-disabled-input>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="col-span-3 rounded-xl shadow-xl p-5">
-      <p>Mes informations personnelles</p>
-    </div>
-  </div>
+  </ng-container>
+  <span *ngIf="!user" class="daisy-loading daisy-loading-ring daisy-loading-lg text-primary-purple"></span>
 </section>
