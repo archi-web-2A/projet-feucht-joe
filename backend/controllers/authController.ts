@@ -75,7 +75,7 @@ export const register = async (req: Request, res: Response) => {
         res.send({ accessToken });
     } catch (err) {
         res.status(400).send({
-            message: 'Error creating new user'
+            message: err.message
         });
     }
 };
